@@ -10,12 +10,15 @@ package shapes;
 public class Circle extends Shape {
 
 	private int radius;
+	private Point center;
 
 	/**
-	 * Konstruktor für Objekte der Klasse Circle
+	 * Konstruktor fuer Objekte der Klasse Circle
 	 */
 	public Circle(int radius, Point center) {
 
+		this.radius = radius;
+		center = center;
 	}
 
 	/**
@@ -23,7 +26,7 @@ public class Circle extends Shape {
 	 */
 	@Override
 	public void draw() {
-
+		// Kreisgleichung x^2 + y^2 = r^2
 	}
 
 	/**
@@ -32,16 +35,17 @@ public class Circle extends Shape {
 	@Override
 	public Drawable move(int x, int y) {
 
-		return null;
+		return Drawable;
 	}
 
 	/**
 	 * @param color (Farbe des Kreises)
 	 * @param solid (wenn true, dann wird die Flaeche komplett ausgefuellt) Zeichnet
-	 *              den Kreis farbig, ggf. ausgefüllt, auf der Zeichenfläche
+	 *              den Kreis farbig, ggf. ausgefuellt, auf der Zeichenflaeche
 	 */
 	public void draw(java.awt.Color color, boolean solid) {
-
+		if (solid == true)
+			setColor(Color color);
 	}
 
 }

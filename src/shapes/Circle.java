@@ -18,7 +18,8 @@ public class Circle extends Shape {
 	public Circle(int radius, Point center) {
 
 		this.radius = radius;
-		center = center;
+		this.center = center;
+
 	}
 
 	/**
@@ -26,7 +27,9 @@ public class Circle extends Shape {
 	 */
 	@Override
 	public void draw() {
-		// Kreisgleichung x^2 + y^2 = r^2
+		getWhiteboard().removeShape(representation);
+		getWhiteboard().drawCircle(x, y, radius);
+
 	}
 
 	/**
@@ -34,8 +37,7 @@ public class Circle extends Shape {
 	 */
 	@Override
 	public Drawable move(int x, int y) {
-
-		return Drawable;
+		return circle;
 	}
 
 	/**
@@ -44,8 +46,8 @@ public class Circle extends Shape {
 	 *              den Kreis farbig, ggf. ausgefuellt, auf der Zeichenflaeche
 	 */
 	public void draw(java.awt.Color color, boolean solid) {
-		if (solid == true)
-			setColor(Color color);
+		getWhiteboard().removeShape(representation);
+		getWhiteboard().drawCircle(x, y, radius, color, solid);
 	}
 
 }

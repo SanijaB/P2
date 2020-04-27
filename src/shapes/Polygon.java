@@ -9,11 +9,13 @@ package shapes;
  */
 public class Polygon extends Shape {
 
+	java.util.ArrayList<Point> points;
+
 	/**
-	 * Konstruktor für Objekte der Klasse Polygon
+	 * Konstruktor fuer Objekte der Klasse Polygon
 	 */
 	public Polygon() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	/**
@@ -21,7 +23,9 @@ public class Polygon extends Shape {
 	 */
 	@Override
 	public void draw() {
-		// TODO Auto-generated method stub
+		getWhiteboard().removeShape(representation);
+		setPoints(points);
+		getWhiteboard().drawPolygon(x, y);
 
 	}
 
@@ -30,22 +34,21 @@ public class Polygon extends Shape {
 	 */
 	@Override
 	public Polygon move(int x, int y) {
-		// TODO Auto-generated method stub
-		return null;
+		return polygon;
 	}
 
 	/**
 	 * Setzt die Eckpunkte des Polygons
 	 */
-	public void setPoints(java.util.ArrayList<Point> p) {
-
+	public void setPoints(java.util.ArrayList<Point> points) {
+		this.points = points;
 	}
 
 	/**
-	 * @return nicht veränderbare Liste der Punkte Zugriff auf die Punkte der Form.
+	 * @return nicht veraenderbare Liste der Punkte Zugriff auf die Punkte der Form.
 	 */
 	public java.util.ArrayList<Point> getPoints() {
-		return null;
+		return points;
 	}
 
 }

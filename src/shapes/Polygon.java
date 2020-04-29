@@ -1,7 +1,11 @@
 /**
+
  * 
  */
 package shapes;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Saniia
@@ -9,13 +13,13 @@ package shapes;
  */
 public class Polygon extends Shape {
 
-	java.util.ArrayList<Point> points;
+	List<Point> points;
 
 	/**
 	 * Konstruktor fuer Objekte der Klasse Polygon
 	 */
 	public Polygon() {
-
+		points = new ArrayList<Point>();
 	}
 
 	/**
@@ -23,10 +27,18 @@ public class Polygon extends Shape {
 	 */
 	@Override
 	public void draw() {
-		getWhiteboard().removeShape(representation);
-		setPoints(points);
-		getWhiteboard().drawPolygon(x, y);
-
+		if(representation !=null) {
+			getWhiteboard().removeShape(representation);
+		}		
+		//Parameter der draw Methode
+		double[]x = new double[points.size()];
+		double[]y = new double[points.size()];
+		//Point in Array hinzufügen
+		for(int i=0; i<points.size();i++) {
+			x[i]=points.get(i).getX();
+			y[i]=points.get(i).getY();
+		}
+		representation= getWhiteboard().drawPolygon(x,y);
 	}
 
 	/**
@@ -34,21 +46,24 @@ public class Polygon extends Shape {
 	 */
 	@Override
 	public Polygon move(int x, int y) {
-		return polygon;
+		for(Point eckPunkt: points) {
+			eckPunkt.move(x,y);
+		}
+		return this;
 	}
 
 	/**
 	 * Setzt die Eckpunkte des Polygons
 	 */
-	public void setPoints(java.util.ArrayList<Point> points) {
+	public void setPoints(List<Point> points) {
 		this.points = points;
 	}
 
 	/**
 	 * @return nicht veraenderbare Liste der Punkte Zugriff auf die Punkte der Form.
 	 */
-	public java.util.ArrayList<Point> getPoints() {
-		return points;
+	public ArrayList<Point> getPoints() {
+		return (ArrayList<Point>) points;
 	}
 
 }

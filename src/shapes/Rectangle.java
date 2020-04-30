@@ -25,7 +25,7 @@ public class Rectangle extends Polygon {
 	@Override
 	public void draw() {
 		getWhiteboard().removeShape(representation);
-		getWhiteboard().drawRectangle(x, y);
+		getWhiteboard().drawRectangle(lengthX, lengthY, lengthX, lengthX);
 	}
 
 }

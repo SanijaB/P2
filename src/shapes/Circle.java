@@ -16,7 +16,6 @@ public class Circle extends Shape {
 	 * Konstruktor fuer Objekte der Klasse Circle
 	 */
 	public Circle(int radius, Point center) {
-
 		this.radius = radius;
 		this.center = center;
 
@@ -27,11 +26,8 @@ public class Circle extends Shape {
 	 */
 	@Override
 	public void draw() {
-		if (representation != null) {
-			getWhiteboard().removeShape(representation);
-		}
-		representation = getWhiteboard().drawCircle(center.getX(), center.getY(), radius);
-
+		getWhiteboard().removeShape(representation);
+		representation = getWhiteboard().drawCircle(center.getX(),center.getY(), radius);
 	}
 
 	/**
@@ -39,7 +35,7 @@ public class Circle extends Shape {
 	 */
 	@Override
 	public Drawable move(int x, int y) {
-		center.move(x, y);
+		center.move(x,y);
 		return this;
 	}
 

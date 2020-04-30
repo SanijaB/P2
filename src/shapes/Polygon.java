@@ -27,9 +27,7 @@ public class Polygon extends Shape {
 	 */
 	@Override
 	public void draw() {
-		if(representation !=null) {
-			getWhiteboard().removeShape(representation);
-		}		
+	   	getWhiteboard().removeShape(representation);		
 		//Parameter der draw Methode
 		double[]x = new double[points.size()];
 		double[]y = new double[points.size()];

@@ -27,27 +27,27 @@ public class Polygon extends Shape {
 	 */
 	@Override
 	public void draw() {
-		if(representation !=null) {
+		if (representation != null) {
 			getWhiteboard().removeShape(representation);
-		}		
-		//Parameter der draw Methode
-		double[]x = new double[points.size()];
-		double[]y = new double[points.size()];
-		//Point in Array hinzufügen
-		for(int i=0; i<points.size();i++) {
-			x[i]=points.get(i).getX();
-			y[i]=points.get(i).getY();
 		}
-		representation= getWhiteboard().drawPolygon(x,y);
+		// Parameter der draw Methode
+		double[] x = new double[points.size()];
+		double[] y = new double[points.size()];
+		// Point in Array hinzufuegen
+		for (int i = 0; i < points.size(); i++) {
+			x[i] = points.get(i).getX();
+			y[i] = points.get(i).getY();
+		}
+		representation = getWhiteboard().drawPolygon(x, y);
 	}
 
 	/**
 	 * Bewegt das Polygon um dx und dy.
 	 */
 	@Override
-	public Polygon move(int x, int y) {
-		for(Point eckPunkt: points) {
-			eckPunkt.move(x,y);
+	public Polygon move(int dx, int dy) {
+		for (Point eckPunkt : points) {
+			eckPunkt.move(dx, dy);
 		}
 		return this;
 	}

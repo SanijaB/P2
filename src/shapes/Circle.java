@@ -27,8 +27,10 @@ public class Circle extends Shape {
 	 */
 	@Override
 	public void draw() {
-		getWhiteboard().removeShape(representation);
-		representation = getWhiteboard().drawCircle(center.getX(),center.getY(), radius);
+		if (representation != null) {
+			getWhiteboard().removeShape(representation);
+		}
+		representation = getWhiteboard().drawCircle(center.getX(), center.getY(), radius);
 
 	}
 
@@ -37,7 +39,7 @@ public class Circle extends Shape {
 	 */
 	@Override
 	public Drawable move(int x, int y) {
-		center.move(x,y);
+		center.move(x, y);
 		return this;
 	}
 

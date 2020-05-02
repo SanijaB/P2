@@ -2,30 +2,33 @@ package shapes;
 
 import java.awt.Color;
 
-import teaching.*;
+import teaching.WhiteBoard;
 
 public abstract class Shape implements Drawable {
 
 	protected Object representation;
-	
+
 	private static WhiteBoard whiteboard;
-	
+
 	private Color color;
-	
+
 	private boolean solid;
-	
+
 	public Shape() {
-		
+
 	}
 
 	public static WhiteBoard getWhiteboard() {
+		if (whiteboard == null) {
+			WhiteBoard whiteboard = new WhiteBoard();
+		}
 		return whiteboard;
 	}
 
 	public Color getColor() {
 		return color;
 	}
-	
+
 	public boolean isSolid() {
 		return solid;
 	}
@@ -37,6 +40,5 @@ public abstract class Shape implements Drawable {
 	public void setSolid(boolean solid) {
 		this.solid = solid;
 	}
-	
-	
+
 }
